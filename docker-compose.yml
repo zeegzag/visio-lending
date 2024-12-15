@@ -1,0 +1,16 @@
+version: "4.28"
+
+services:
+  django:
+    container_name: django
+    build:
+      context: ./dcelery
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./dcelery:/usr/src/app/
+    ports:
+      - 8000:8000
+    environment:
+      - DEBUG=1
+      - SECRET_KEY=django-insecure-=ve$&6f4=c1+krmrs5164y%2*y3k!2m7(7h9e*rn$^(+tpio+=
+      - ALLOWED_HOSTS=localhost,127.0.0.1
